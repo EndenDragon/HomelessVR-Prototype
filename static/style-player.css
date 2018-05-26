@@ -1,0 +1,13 @@
+body {
+    background-color: rgb(148, 200, 228);
+    margin-top: 20px;
+}
+
+#weather-img {
+    height: 100px;
+}
+
+#main-game {
+    background-color: white;
+    border-radius: 20px;
+}

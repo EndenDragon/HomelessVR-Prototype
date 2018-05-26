@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style-player.css">
+    <title>Homeless VR</title>
+  </head>
+  <body>
+    <div class="container">
+      <div id="instructions">
+        <div class="card col-sm-9">
+          <div class="card-header">
+            Instructions
+          </div>
+          <div class="card-body">
+            <h3>Welcome to Homeless VR!</h3>
+            <p>The objective of this game is to survive for 5 days. Each day is 20 seconds long.</p>
+            <p>You will beg as hard and genuine as you can. We will be the common people. Common people can provide free stuff if you beg well.</p>
+            <p>Free stuff include money for the shop and vitals.</p>
+            <p>Vitals include Thirst, Hunger, and Warmth. If any of them hits 0%, your health will start to lower. The health will reach 0% in 1 day, so act fast!</p>
+            <p>If your health is at 0%, you die.</p>
+            <hr>
+            <p><strong>Please wait for the game to start.</strong></p>
+          </div>
+        </div>
+      </div>
+      <div id="main-game" class="row" style="display: none;">
+        <div class="col-sm-12">
+          <h2>Game progress <span id="gamePercent">0</span>%</h2>
+          <div class="progress">
+            <div id="gameProgress" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 0%"></div>
+          </div>
+        </div>
+        <br><br><br>
+        <div class="card col-sm-8">
+          <div class="card-header">
+            Vitals Bars
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">If health reaches 0, you're toast!</h5>
+            <hr>
+            <p><strong>Health Level (<span id="health-level-num">100</span>/100)</strong></p>
+            <div class="progress">
+              <div id="health-level" class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+            </div>
+            <hr>
+            <p>Thirst Level (<span id="thirst-level-num">100</span>/100)</p>
+            <div class="progress">
+              <div id="thirst-level" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+            </div>
+            <br>
+            <p>Hunger Level (<span id="hunger-level-num">100</span>/100)</p>
+            <div class="progress">
+              <div id="hunger-level" class="progress-bar progress-bar-striped bg-warning progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+            </div>
+            <br>
+            <p>Warmth Level (<span id="warmth-level-num">100</span>/100)</p>
+            <div class="progress">
+              <div id="warm-level" class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card col-sm-4">
+          <div class="card-header">
+            At Glance
+          </div>
+          <div class="card-body">
+            <h5>Day: <span id="day">1</span> /5</h5>
+            <h5>Time left of day: <span id="day-left">20</span>s</h5>
+            <h5>Money: $<span id="money">5</span></h5>
+            <h5>Beg Lvl: <span id="beg-level">0</span>/100</h5>
+            <canvas id="begLvlCanv"></canvas>
+            <p>Beg hard and genuine to get people to give you free stuff!!</p>
+          </div>
+        </div>
+        <div class="card col-sm-3">
+          <div class="card-header">
+            Today's forcast
+          </div>
+          <div class="card-body">
+            <h5>Weather: <span id="weather">Sunny</span></h5>
+            <img src="/static/sunny.png" id="weather-img">
+            <p>Protip: Get a blanket to keep yourself warm during rainy days!</p>
+          </div>
+        </div>
+        <div class="card col-sm-9">
+          <div class="card-header">
+            Inventory
+          </div>
+          <div class="card-body">
+            <ul id="inventory-list">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="http://bernii.github.io/gauge.js/dist/gauge.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
+    <script src="/static/player.js"></script>
+  </body>
+</html>

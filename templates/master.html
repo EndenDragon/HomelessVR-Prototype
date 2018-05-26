@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+            body {
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <button id="start">Start Game</button>
+        <button id="stop" disabled>Stop Game</button>
+        <button id="reset">Reset Game</button>
+        <div>
+            <h1>At Glance</h1>
+            <p>Day: <span id="day">1</span> /5 <input id="input-day"><button id="btn-day">Set</button></p>
+            <p>Time left of day: <span id="timeLeft">20</span>s</p>
+            <p>Money: $<span id="money">5</span> <input id="input-money"><button id="btn-money">Set</button></p>
+            <p>Beg Lvl: <span id="begLvl">0</span>/100 <input id="input-begLvl"><button id="btn-begLvl">Set</button></p>
+        </div>
+        <div>
+            <h1>Vital Bars</h1>
+            <p>Health Level: <span id="health">100</span>/100 <input id="input-health"><button id="btn-health">Set</button></p>
+            <p>Thirst Level: <span id="thirst">100</span>/100 <input id="input-thirst"><button id="btn-thirst">Set</button></p>
+            <p>Hunger Level: <span id="hunger">100</span>/100 <input id="input-hunger"><button id="btn-hunger">Set</button></p>
+            <p>Warmth Level: <span id="warmth">100</span>/100 <input id="input-warmth"><button id="btn-warmth">Set</button></p>
+        </div>
+        <div>
+            <h1>Today Forcast</h1>
+            <p>Weather: <span id="weather">Sunny</span></p>
+            <p>Blanket: <span id="blanket">No</span> <input id="input-blanket"><button id="btn-blanket">Set</button></p>
+        </div>
+        <div>
+            <h1>Inventory</h1>
+            <textarea rows="5" cols="50" disabled id="disabled-inventory"></textarea>
+            <textarea rows="5" cols="50" id="inventory"></textarea>
+            <button id="inventory-btn">Save Inventory</button>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.slim.js"></script>
+        <script src="/static/master.js"></script>
+    </body>
+</html>
